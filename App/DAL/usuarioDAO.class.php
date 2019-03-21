@@ -122,8 +122,8 @@ class usuarioDAO {
         }
     }
 
-    public function Update($nome, $cpf, $nascimento, $email, $usuario, $senha, $cep, $logradouro, $numero, $bairro, $complemento, $cidade, $uf){
-        $sql = $this->prepare('UPDATE usuarios SET nome = ?, cpf = ?, nascimento = ?, email = ?, usuario = ?, senha = ?, cep = ?, logradouro = ?, numero = ?, bairro = ?, complemento = ?, cidade = ?, uf = ? WHERE usuarioID = ?');
+    public function Update($nome, $cpf, $nascimento, $email, $usuario, $senha, $cep, $logradouro, $numero, $bairro, $complemento, $cidade, $uf, $id){
+        $sql = $this->pdo->prepare('UPDATE usuarios SET nome = ?, cpf = ?, nascimento = ?, email = ?, usuario = ?, senha = ?, cep = ?, logradouro = ?, numero = ?, bairro = ?, complemento = ?, cidade = ?, uf = ? WHERE usuarioID = ?');
         $sql->bindValue(1, $nome);
         $sql->bindValue(2, $cpf);
         $sql->bindValue(3, $nascimento);
@@ -137,6 +137,7 @@ class usuarioDAO {
         $sql->bindValue(11, $complemento);
         $sql->bindValue(12, $cidade);
         $sql->bindValue(13, $uf);
+        $sql->bindValue(14, $id);
         $sql->execute();
         if($sql->rowCount() >0){
             $_SESSION['return'] = 'true';

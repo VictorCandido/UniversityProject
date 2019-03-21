@@ -21,7 +21,7 @@ $usuario = $usuarioDAO->pesquisa('usuario', $_SESSION['usuario']);
                     <img src="../../Assets/img/user_picture.png" class="rounded float-left" style="width: 70px;">
                     <div style="margin-left: 80px;">
                         <h4 class="h4"><?php echo $_SESSION['usuario'] ?></h4>
-                        <a href="../alterar_usuario/index.php?id=<?php echo $usuario['usuarioID'] ?>">Editar</a>
+                        <a href="../editar_usuario/index.php?id=<?php echo $usuario['usuarioID'] ?>">Editar</a>
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -30,6 +30,11 @@ $usuario = $usuarioDAO->pesquisa('usuario', $_SESSION['usuario']);
             </div>
         </li>
         <li><a href="../home/index.php" class="list-group-item list-group-item-action bg-light">Página Inicial</a></li>
+        <li><a href="" class="list-group-item list-group-item-action bg-light">Avisos</a></li>
+        <li><a href="" class="list-group-item list-group-item-action bg-light">Disciplinas</a></li>
+        <li><a href="" class="list-group-item list-group-item-action bg-light">Notas e Faltas</a></li>
+        <li><a href="" class="list-group-item list-group-item-action bg-light">Calendário</a></li>
+        <li><a href="../projeto_marcal" class="list-group-item list-group-item-action bg-light">Projeto Marçal</a></li>
         <li><a href="../painel_controle/index.php" class="list-group-item list-group-item-action bg-light">Painel de Controle</a></li>
 </div>
 

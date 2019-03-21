@@ -25,7 +25,7 @@ if(isset($_POST['btnSalvar'])){
 	$id = utf8_decode($_GET['id']);
 
 	$usuarioDAO->Update($nome, $cpf, $nascimento, $email, $usuario, $senha, $cep, $logradouro, $numero, $bairro, $complemento, $cidade, $uf, $id);
-	echo "<script>history.go(-1)</script>";
+	echo "<script>voltar()</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -128,13 +128,13 @@ if(isset($_POST['btnSalvar'])){
 								</div>
 								<div class="form-group col-md-4">
 									<label for="senha">Senha</label>
-									<input type="text" name="senha" class="form-control" placeholder="************" readonly>
+									<input type="password" name="senha" class="form-control" readonly value="<?php echo $usuarioPesquisa['senha'] ?>">
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="form-group col-md-4">
-									<button class="btn btn-info" style="width: 100%">Alterar Email</button>
+									<a href="#" class="btn btn-info" style="width: 100%" data-toggle="modal" data-target="#alteraEmail">Alterar Email</a>
 								</div>
 								<div class="form-group col-md-4">
 									<button class="btn btn-info" style="width: 100%">Alterar Usuário</button>
@@ -147,7 +147,7 @@ if(isset($_POST['btnSalvar'])){
 							<div class="row">
 								<div class="col-md-3">
 									<button type="submit" class="btn btn-success" id="btnSalvar" name="btnSalvar"> Salvar </button>
-									<a href="../lista_usuarios/index.php" class="btn btn-danger"> Cancelar </a>
+									<a onclick="voltar()" href="#" class="btn btn-danger"> Cancelar </a>
 								</div>
 							</div>
 						</form>
@@ -155,11 +155,50 @@ if(isset($_POST['btnSalvar'])){
 				</div>
 			</div>	
 		</div>
+
+		<div id="alteraEmail" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Alterar Email</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        <form>
+			          <div class="form-group">
+			            <label for="recipient-name" class="col-form-label">Email</label>
+			            <input type="text" class="form-control" id="alteraEmail">
+			          </div>
+			          <div class="form-group">
+			            <label for="recipient-name" class="col-form-label">Confirma Email</label>
+			            <input type="text" class="form-control" id="confirmaEmail">
+			          </div>
+			        </form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
+			        <button type="button" class="btn btn-primary" id="salvarEmail"> Salvar </button>
+			      </div>
+			    </div>
+		  	</div>
+		</div>
+
 	</div>
 	<script type="text/javascript" src="../../Assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../../Assets/js/alertify.js"></script>
 	<script type="text/javascript" src="../../Assets/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="../../Assets/js/bootstrap-datepicker.pt-BR.min.js"></script>
+	<script type="text/javascript">
+		function voltar(){
+			history.go(-1)
+		}
+
+		$('#salvarEmail').click(function(){
+			$('#email').val($('#alteraEmail').val());
+		});
+	</script>
 </body>
 </html>
 <?php  
