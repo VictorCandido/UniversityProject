@@ -2,9 +2,12 @@
 include '../../DAL/usuarioDAO.class.php';
 include '../../DAL/Conexao.class.php';
 
+$usuarioDAO = new usuarioDAO();
+$usuarioDAO->verificaLogin();
+
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
-	$usuarioDAO = new usuarioDAO();
+	
 	$usuarioPesquisa = $usuarioDAO->pesquisa('id', $id);
 }
 

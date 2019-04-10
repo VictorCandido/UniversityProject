@@ -71,8 +71,8 @@ $verificaLogin->verificaLogin();
 							</li>
 							<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 								<div class="row">
-									<a href="../cadastrar_cargo/index.php"><img src="../../Assets/img/cargo.png"></a>
-									<a href="../cadastrar_cargo/index.php"><p>Cargos</p></a>
+									<a href="../lista_cargos"><img src="../../Assets/img/cargo.png"></a>
+									<a href="../lista_cargos"><p>Cargos</p></a>
 								</div>
 							</li>
 							<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
