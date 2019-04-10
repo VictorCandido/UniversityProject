@@ -142,6 +142,7 @@ class usuarioDAO {
         if($sql->rowCount() >0){
             $_SESSION['return'] = 'true';
             $_SESSION['mensagem'] = 'Usuário atualizado com sucesso';
+            $_SESSION['usuario'] = $usuario;
         }else{
             $_SESSION['return'] = 'false';
             $_SESSION['mensagem'] = 'Falha ao atualizar o usuário';
